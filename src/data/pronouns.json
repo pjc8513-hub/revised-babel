@@ -1,0 +1,350 @@
+[
+    {
+        "word": "ANOTHER",
+        "pos": "pron."
+    },
+    {
+        "word": "CESTUY; CESTUI",
+        "pos": "pron."
+    },
+    {
+        "word": "ECHON; ECHOON",
+        "pos": "pron."
+    },
+    {
+        "word": "EVERICHON; EVERYCHON",
+        "pos": "pron."
+    },
+    {
+        "word": "HE",
+        "pos": "pron."
+    },
+    {
+        "word": "HEM",
+        "pos": "pron."
+    },
+    {
+        "word": "HEMSELF; HEMSELVE; HEMSELVEN",
+        "pos": "pron."
+    },
+    {
+        "word": "HER",
+        "pos": "pron."
+    },
+    {
+        "word": "HER; HERE",
+        "pos": "pron."
+    },
+    {
+        "word": "HERE",
+        "pos": "pron."
+    },
+    {
+        "word": "HERS",
+        "pos": "pron."
+    },
+    {
+        "word": "HERSELF",
+        "pos": "pron."
+    },
+    {
+        "word": "HIM",
+        "pos": "pron."
+    },
+    {
+        "word": "HIM",
+        "pos": "pron."
+    },
+    {
+        "word": "HIMSELF",
+        "pos": "pron."
+    },
+    {
+        "word": "HIMSELVE",
+        "pos": "pron."
+    },
+    {
+        "word": "HIR",
+        "pos": "pron."
+    },
+    {
+        "word": "HIRE",
+        "pos": "pron."
+    },
+    {
+        "word": "HIRES; HIRS",
+        "pos": "pron."
+    },
+    {
+        "word": "HIS",
+        "pos": "pron."
+    },
+    {
+        "word": "HIT",
+        "pos": "pron."
+    },
+    {
+        "word": "HO",
+        "pos": "pron."
+    },
+    {
+        "word": "I",
+        "pos": "pron."
+    },
+    {
+        "word": "ICH",
+        "pos": "pron."
+    },
+    {
+        "word": "IDEM",
+        "pos": "pron."
+    },
+    {
+        "word": "IK",
+        "pos": "pron."
+    },
+    {
+        "word": "ILKON; ILKOON",
+        "pos": "pron."
+    },
+    {
+        "word": "IT",
+        "pos": "pron."
+    },
+    {
+        "word": "ITSELF",
+        "pos": "pron."
+    },
+    {
+        "word": "ME",
+        "pos": "pron."
+    },
+    {
+        "word": "ME",
+        "pos": "pron."
+    },
+    {
+        "word": "MEN",
+        "pos": "pron."
+    },
+    {
+        "word": "MINE",
+        "pos": "pron."
+    },
+    {
+        "word": "MYSELF",
+        "pos": "pron."
+    },
+    {
+        "word": "MYSELVEN",
+        "pos": "pron."
+    },
+    {
+        "word": "ONE",
+        "pos": "pron."
+    },
+    {
+        "word": "ONESELF",
+        "pos": "pron."
+    },
+    {
+        "word": "OTHER",
+        "pos": "pron."
+    },
+    {
+        "word": "OUR",
+        "pos": "pron."
+    },
+    {
+        "word": "OURS",
+        "pos": "pron."
+    },
+    {
+        "word": "OURSELVES",
+        "pos": "pron."
+    },
+    {
+        "word": "SHE",
+        "pos": "pron."
+    },
+    {
+        "word": "THAT",
+        "pos": "pron."
+    },
+    {
+        "word": "THEE",
+        "pos": "pron."
+    },
+    {
+        "word": "THEIR",
+        "pos": "pron."
+    },
+    {
+        "word": "THEM",
+        "pos": "pron."
+    },
+    {
+        "word": "THEMSELVES",
+        "pos": "pron."
+    },
+    {
+        "word": "THESE",
+        "pos": "pron."
+    },
+    {
+        "word": "THEY",
+        "pos": "pron."
+    },
+    {
+        "word": "THILK",
+        "pos": "pron."
+    },
+    {
+        "word": "THINE",
+        "pos": "pron."
+    },
+    {
+        "word": "THIS",
+        "pos": "pron."
+    },
+    {
+        "word": "THO",
+        "pos": "pron."
+    },
+    {
+        "word": "THOSE",
+        "pos": "pron."
+    },
+    {
+        "word": "THOU",
+        "pos": "pron."
+    },
+    {
+        "word": "THY",
+        "pos": "pron."
+    },
+    {
+        "word": "THYSELF",
+        "pos": "pron."
+    },
+    {
+        "word": "US",
+        "pos": "pron."
+    },
+    {
+        "word": "WE",
+        "pos": "pron."
+    },
+    {
+        "word": "WHAT",
+        "pos": "pron."
+    },
+    {
+        "word": "WHATE'ER",
+        "pos": "pron."
+    },
+    {
+        "word": "WHATEVER",
+        "pos": "pron."
+    },
+    {
+        "word": "WHATSO",
+        "pos": "pron."
+    },
+    {
+        "word": "WHATSOE'ER",
+        "pos": "pron."
+    },
+    {
+        "word": "WHATSOEVER",
+        "pos": "pron."
+    },
+    {
+        "word": "WHEDER",
+        "pos": "pron."
+    },
+    {
+        "word": "WHER; WHERE",
+        "pos": "pron."
+    },
+    {
+        "word": "WHETHER",
+        "pos": "pron."
+    },
+    {
+        "word": "WHICH",
+        "pos": "pron."
+    },
+    {
+        "word": "WHICHEVER; WHICHSOEVER",
+        "pos": "pron."
+    },
+    {
+        "word": "WHILK",
+        "pos": "pron."
+    },
+    {
+        "word": "WHO",
+        "pos": "pron."
+    },
+    {
+        "word": "WHOEVER",
+        "pos": "pron."
+    },
+    {
+        "word": "WHOM",
+        "pos": "pron."
+    },
+    {
+        "word": "WHOMSOEVER",
+        "pos": "pron."
+    },
+    {
+        "word": "WHOSE",
+        "pos": "pron."
+    },
+    {
+        "word": "WHOSESOEVER",
+        "pos": "pron."
+    },
+    {
+        "word": "WHOSO",
+        "pos": "pron."
+    },
+    {
+        "word": "WHOSOEVER",
+        "pos": "pron."
+    },
+    {
+        "word": "Y",
+        "pos": "pron."
+    },
+    {
+        "word": "YE",
+        "pos": "pron."
+    },
+    {
+        "word": "YOU",
+        "pos": "pron."
+    },
+    {
+        "word": "YOUR",
+        "pos": "pron."
+    },
+    {
+        "word": "YOURS",
+        "pos": "pron."
+    },
+    {
+        "word": "YOURS",
+        "pos": "pron."
+    },
+    {
+        "word": "YOURSELF",
+        "pos": "pron."
+    },
+    {
+        "word": "YOW",
+        "pos": "pron."
+    }
+]
