@@ -71,7 +71,10 @@ export function generatePage(hex, wall, shelf, vol, page, isCoherent = true) {
         pageContent.push(capitalize(sentence) + '.');
     }
 
-    return pageContent.join(' ');
+    const content = pageContent.join(' ');
+    // Enforce Library of Babel rules: only letters, spaces, periods, and commas.
+    // Replace anything else with an empty string.
+    return content.replace(/[^a-zA-Z\s.,]/g, '');
 }
 
 export function parseCoordinates(hash) {
