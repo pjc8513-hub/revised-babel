@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { generatePage, parseCoordinates, formatCoordinates } from './engine/generator';
-import { ChevronLeft, ChevronRight, Share2, Shuffle, Search } from 'lucide-react';
+import audioEngine from './engine/audio';
+import { ChevronLeft, ChevronRight, Share2, Shuffle, Play, Pause, Volume2, Music } from 'lucide-react';
 
 const INITIAL_COORDS = {
     hex: '0',
@@ -14,6 +15,16 @@ function App() {
     const [coords, setCoords] = useState(INITIAL_COORDS);
     const [content, setContent] = useState('');
     const [isCopied, setIsCopied] = useState(false);
+    const [isCoherent, setIsCoherent] = useState(true);
+    const [activeCharIndex, setActiveCharIndex] = useState(-1);
+
+    // Audio State
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [audioSettings, setAudioSettings] = useState({
+        mood: 'classic',
+        speed: 0.5,
+        volume: 0.5
+    });
 
     // Sync state from URL hash on mount and hash change
     useEffect(() => {
@@ -36,14 +47,40 @@ function App() {
     // Update content when coords change
     useEffect(() => {
         const { hex, wall, shelf, vol, page } = coords;
-        const text = generatePage(hex, wall, shelf, vol, page);
+        const text = generatePage(hex, wall, shelf, vol, page, isCoherent);
         setContent(text);
+
+        // Update audio engine text if playing
+        if (isPlaying) {
+            audioEngine.play(text, (index) => setActiveCharIndex(index));
+        }
+
         // Update hash to match current coords
         const newHash = formatCoordinates(coords);
         if (window.location.hash !== '#' + newHash) {
             window.location.hash = newHash;
         }
-    }, [coords]);
+    }, [coords, isPlaying]);
+
+    // Update audio engine settings
+    useEffect(() => {
+        audioEngine.setSettings(audioSettings);
+    }, [audioSettings]);
+
+    const togglePlay = () => {
+        if (isPlaying) {
+            audioEngine.pause();
+            setIsPlaying(false);
+            setActiveCharIndex(-1);
+        } else {
+            audioEngine.play(content, (index) => setActiveCharIndex(index));
+            setIsPlaying(true);
+        }
+    };
+
+    const handleAudioSetting = (field, value) => {
+        setAudioSettings(prev => ({ ...prev, [field]: value }));
+    };
 
     const handleInputChange = (field, value) => {
         let newValue = value;
@@ -136,6 +173,12 @@ function App() {
                         onChange={(e) => handleInputChange('page', e.target.value)}
                     />
                 </div>
+                <div className="nav-group toggle-group">
+                    <label>Coherence</label>
+                    <div className="toggle-container" onClick={() => setIsCoherent(!isCoherent)}>
+                        <div className={`toggle-switch ${isCoherent ? 'on' : 'off'}`}></div>
+                    </div>
+                </div>
             </nav>
 
             <div className="action-bar">
@@ -154,10 +197,60 @@ function App() {
                 </button>
             </div>
 
+            <section className="audio-controls">
+                <div className="audio-group">
+                    <label><Music size={14} /> Mood</label>
+                    <select
+                        value={audioSettings.mood}
+                        onChange={(e) => handleAudioSetting('mood', e.target.value)}
+                    >
+                        <option value="classic">Classic</option>
+                        <option value="dark">Dark</option>
+                        <option value="ambient">Ambient</option>
+                        <option value="fantasy">Fantasy</option>
+                    </select>
+                </div>
+
+                <div className="audio-group">
+                    <label>Speed</label>
+                    <input
+                        type="range"
+                        min="0" max="1" step="0.01"
+                        value={audioSettings.speed}
+                        onChange={(e) => handleAudioSetting('speed', parseFloat(e.target.value))}
+                    />
+                </div>
+
+                <div className="audio-group">
+                    <label><Volume2 size={14} /> Sound</label>
+                    <input
+                        type="range"
+                        min="0" max="1" step="0.01"
+                        value={audioSettings.volume}
+                        onChange={(e) => handleAudioSetting('volume', parseFloat(e.target.value))}
+                    />
+                </div>
+
+                <button
+                    className={`play-button ${isPlaying ? 'playing' : ''}`}
+                    onClick={togglePlay}
+                >
+                    {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                    {isPlaying ? 'Pause' : 'Listen'}
+                </button>
+            </section>
+
             <main className="page-container">
                 <div className="page">
                     <div className="page-text">
-                        {content}
+                        {content.split('').map((char, i) => (
+                            <span
+                                key={i}
+                                className={`char-highlight ${i === activeCharIndex ? 'active' : ''}`}
+                            >
+                                {char}
+                            </span>
+                        ))}
                     </div>
                     <div className="page-number">
                         Page {coords.page}
