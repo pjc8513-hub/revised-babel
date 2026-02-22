@@ -2,7 +2,8 @@
   --bg-color: #0f1115;
   --panel-bg: #1a1d23;
   --text-color: #e0e0e0;
-  --accent-color: #d4af37; /* Gold */
+  --accent-color: #d4af37;
+  /* Gold */
   --highlight-color: #c5a028;
   --paper-color: #ede6d6;
   --paper-text: #1a1a1a;
@@ -24,7 +25,9 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-serif);
   color: var(--accent-color);
   text-transform: uppercase;
@@ -66,6 +69,41 @@ h1, h2, h3 {
   border: 1px solid #333;
 }
 
+.toggle-group {
+  margin-left: 1rem;
+}
+
+.toggle-container {
+  width: 50px;
+  height: 24px;
+  background: #2a2e37;
+  border: 1px solid #444;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toggle-switch {
+  width: 18px;
+  height: 18px;
+  background: #666;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toggle-switch.off {
+  left: 3px;
+}
+
+.toggle-switch.on {
+  left: 27px;
+  background: var(--accent-color);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
 .nav-group {
   display: flex;
   flex-direction: column;
@@ -104,7 +142,7 @@ h1, h2, h3 {
   padding: 4rem;
   max-width: 800px;
   width: 100%;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   position: relative;
   min-height: 700px;
   font-size: 1.1rem;
@@ -117,8 +155,11 @@ h1, h2, h3 {
 .page::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.02) 50%, rgba(0,0,0,0.02) 75%, transparent 75%, transparent);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.02) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.02) 50%, rgba(0, 0, 0, 0.02) 75%, transparent 75%, transparent);
   background-size: 4px 4px;
   pointer-events: none;
 }
@@ -138,6 +179,64 @@ h1, h2, h3 {
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+.audio-controls {
+  background: var(--panel-bg);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #333;
+}
+
+.audio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.audio-group label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.audio-group select {
+  background: #2a2e37;
+  border: 1px solid #444;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.audio-group input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent-color);
+}
+
+.play-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.play-button.playing {
+  background: #a02828;
+  color: white;
+}
+
+.play-button.playing:hover {
+  background: #c03838;
 }
 
 button {
@@ -165,6 +264,23 @@ button.secondary {
 
 button.secondary:hover {
   background: rgba(212, 175, 55, 0.1);
+}
+
+.page-text {
+  white-space: pre-wrap;
+}
+
+.char-highlight {
+  transition: all 0.1s;
+}
+
+.char-highlight.active {
+  background: var(--accent-color);
+  color: var(--bg-color);
+  box-shadow: 0 0 8px var(--accent-color);
+  border-radius: 2px;
+  transform: scale(1.1);
+  display: inline-block;
 }
 
 .footer {

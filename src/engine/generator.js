@@ -33,13 +33,16 @@ const sentenceTemplates = [
  * @param {number} shelf - 1-5
  * @param {number} vol - 1-32
  * @param {number} page - 1-410
+ * @param {boolean} isCoherent - Whether to use sentence templates or random word stream
  */
-export function generatePage(hex, wall, shelf, vol, page) {
+export function generatePage(hex, wall, shelf, vol, page, isCoherent = true) {
     const seed = `${hex}-${wall}-${shelf}-${vol}-${page}`;
     const rng = seedrandom(seed);
 
+    const allWords = Object.values(dictionaries).flat();
+
     const getText = (type) => {
-        const list = dictionaries[type];
+        const list = dictionaries[type] || allWords;
         const index = Math.floor(rng() * list.length);
         return list[index].toLowerCase();
     };
@@ -47,13 +50,24 @@ export function generatePage(hex, wall, shelf, vol, page) {
     const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
     let pageContent = [];
-    // Generate a fixed number of sentences per page to keep it consistent
     const sentenceCount = 20 + Math.floor(rng() * 10);
 
     for (let i = 0; i < sentenceCount; i++) {
-        const templateIndex = Math.floor(rng() * sentenceTemplates.length);
-        const template = sentenceTemplates[templateIndex];
-        let sentence = template.map(type => getText(type)).join(' ');
+        let sentence;
+        if (isCoherent) {
+            const templateIndex = Math.floor(rng() * sentenceTemplates.length);
+            const template = sentenceTemplates[templateIndex];
+            sentence = template.map(type => getText(type)).join(' ');
+        } else {
+            // Chaos mode: Random length sentences (3-12 words)
+            const length = 3 + Math.floor(rng() * 10);
+            const words = [];
+            for (let j = 0; j < length; j++) {
+                const wordIndex = Math.floor(rng() * allWords.length);
+                words.push(allWords[wordIndex].toLowerCase());
+            }
+            sentence = words.join(' ');
+        }
         pageContent.push(capitalize(sentence) + '.');
     }
 
